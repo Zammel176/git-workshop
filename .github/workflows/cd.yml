@@ -1,0 +1,22 @@
+name: Simple CD
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create deploy folder
+        run: mkdir -p deploy
+
+      - name: Copy hello.txt to deploy folder
+        run: cp hello.txt deploy/
+
+      - name: List deployed files
+        run: ls deploy
