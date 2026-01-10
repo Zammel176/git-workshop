@@ -1,0 +1,13 @@
+name: Simple CI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  check-file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: test -f hello.txt
